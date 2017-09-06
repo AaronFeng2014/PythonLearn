@@ -6,6 +6,7 @@ python包
         b.然后查找package包下的module.py文件，并执行文件中所有顶层语句，module.py中的变量，函数和类的定义都可以通过pack.module命名空间获取
 
 """
+from foo.main.com.aaron.python.oo.ClassLearn import Student
 
 """
 python算术运算符
@@ -27,7 +28,7 @@ print(a * b)
 python算术运算符
     1. ==
     2. !=
-    3. <> 不等于，用于判断两个对象是否不相等，类似于 != 运算符
+    3. <> 不等于，用于判断两个对象是否不相等，类似于 != 运算符，在Python 3中已经移除了该运算符了
     4. >
     5. <
     6. >=
@@ -63,3 +64,23 @@ print(a and b)
 print(a or b)
 print(not not a)
 print(not b)
+
+student = Student("you", "15", "成都市")
+print(student._age)
+student._study()
+
+# __dict__方法是Python内置的类的属性，包含一个字典，由类的数据属性组成，类似于java中的toString方法
+var = Student.__dict__
+print(var)
+
+var = Student.__doc__
+print(var)
+
+var = Student.__module__
+print(var)
+
+var = Student.__bases__
+print(var)
+
+var = Student.__name__
+print(var)
