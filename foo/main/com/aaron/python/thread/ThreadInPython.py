@@ -4,21 +4,41 @@ python中的多线程
 
 """
 
-import _thread
+import threading
+import time
 
 
-def printNum(threadname, number):
-    if threadname == "奇数线程":
-        for i in range(number):
-            if i % 2 == 0:
-                print(i)
-    if threadname == "偶数线程":
-        for i in range(number):
-            if i % 2 != 0:
-                print(i)
+class PrintNumberThread(threading.Thread):
+    __number = 0
 
-    print("done")
+    def __init__(self, name, number):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.__number = number
+
+    # 线程中执行的方法
+    def printnum(self, threadname, number):
+        if threadname == "奇数线程":
+            for i in range(number):
+                if i % 2 == 0:
+                    print(self.name + "%s" % i)
+        if threadname == "偶数线程":
+            for i in range(number):
+                if i % 2 != 0:
+                    print(self.name + "%s" % i)
+
+        print("done")
+
+    def run(self):
+        self.printnum(self.name, self.__number)
 
 
-_thread.start_new_thread(printNum, ("奇数线程", 10))
-_thread.start_new_thread(printNum, ("偶数线程", 10))
+try:
+
+    thread1 = PrintNumberThread("奇数线程", 200)
+    thread2 = PrintNumberThread("偶数线程", 200)
+    thread1.start()
+    thread2.start()
+    time.sleep(2)
+except:
+    print("线程异常")
