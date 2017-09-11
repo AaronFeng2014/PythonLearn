@@ -92,7 +92,7 @@ def scanner(startTime):
     res = getEarthquakeData(startTime)
     res = json.loads(res)
     result = res["result"]
-    if (result == "OK"):
+    if result == "OK":
         values = res["values"]
         tempTime = startTime
         for value in values:

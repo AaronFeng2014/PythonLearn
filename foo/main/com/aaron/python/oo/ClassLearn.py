@@ -67,7 +67,7 @@ class Student(Person):
 # 实例化一个类，会调用__init__方法，来初始化参数
 student = Student("feng", "23", "成都市")
 # student2 = Student("you", "15", "成都市")
-student._study()
+student.study()
 
 # print(student.__Student__name)
 
