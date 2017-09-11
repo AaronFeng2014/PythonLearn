@@ -8,6 +8,7 @@ import _thread
 
 
 def printNum(threadname, number):
+    print(number)
     if threadname == "奇数线程":
         for i in range(number):
             if i % 2 == 0:
