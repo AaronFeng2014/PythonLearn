@@ -22,7 +22,7 @@ class Person:
         print("Person object is dead")
 
     def study(self):
-        print("人们可以学习" + self)
+        print("人们可以学习" + self._age)
 
 
 """
